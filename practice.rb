@@ -14,7 +14,7 @@ sum = 0
 end
 puts sum
 
-#10から20までの合計の数　for文
+#10から20までの合計の数 for文
 from = 10
 to = 20
 sum = 0
