@@ -1,5 +1,4 @@
 class Introduction
-
   def initialize(country, name, age)
     @country = country
     @name = name
