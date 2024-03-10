@@ -1,11 +1,9 @@
 class Receipt
+  attr_accessor :name, :lines
+
   def initialize(name)
     @name = name
     @lines = []
-  end
-
-  def lines=(lines)
-    @lines = lines
   end
 
   def calc
@@ -19,13 +17,13 @@ class Receipt
   def output
     puts "レシート#{@name}について"
     @lines.each do |line|
-      puts "#{line[:name]} #{line[:price]}円} x #{line[:num]}"
+      puts "#{line[:name]}は #{line[:price]}円 x #{line[:num]}"
     end
-    puts "合計金額: #{calc}円"
+    puts "よって合計金額: #{calc}円"
   end
 end
 
-r = Receipt.new("ストアA")
-r.lines = [{name: "卵", price: 200, num: 1},
+receipt = Receipt.new("ストアA")
+receipt.lines = [{name: "卵", price: 200, num: 1},
           {name: "大根", price: 100, num: 2}]
-r.output
+receipt.output
