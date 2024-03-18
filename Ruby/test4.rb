@@ -6,4 +6,3 @@ else
   puts "false"
 end
 
-#
