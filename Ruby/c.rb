@@ -13,6 +13,7 @@ non_multiples_of_three = numbers.select {|n| n % 3 }
 
 n = 70
 m = 100
+
 #to_fがないと０になる
 result = n / m.to_f
 p result
