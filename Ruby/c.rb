@@ -21,6 +21,8 @@ date = find_data
 if data != nil
 
 
+
+
 #配列の各要素を連結するメソッド
 test = [10, 20, 30]
 test.join
