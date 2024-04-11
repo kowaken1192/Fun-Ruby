@@ -18,7 +18,7 @@ result = n / m.to_f
 p result
 
 date = find_data
-if data != nil
+if date != nil
 
 
 
