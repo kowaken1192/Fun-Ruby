@@ -1,25 +1,33 @@
-numbers = [1,2,3,4]
-sum = 0
-numbers.each do |n|
-  #+=演算子は num = num + １と同じ
-  sum = sum + n
+
+# ナイトの動きを定義
+moves = [[-2, -1], [-1, -2], [1, -2], [2, -1], [2, 1], [1, 2], [-1, 2], [-2, 1]]
+
+# チェス盤のサイズ
+board_size = 50
+
+# 初期位置
+start_position = [0, 0]
+
+# 到達できるマスを記録するセット
+reachable = Set.new
+
+# 深さ優先探索でナイトを20回動かす
+def dfs(position, depth, moves, board_size, reachable)
+  if depth == 20
+    reachable.add(position)
+    return
+  end
+
+  moves.each do |dx, dy|
+    new_x = position[0] + dx
+    new_y = position[1] + dy
+    if new_x >= 0 && new_x < board_size && new_y >= 0 && new_y < board_size
+      dfs([new_x, new_y], depth + 1, moves, board_size, reachable)
+    end
+  end
 end
 
-puts sum
+dfs(start_position, 0, moves, board_size, reachable)
 
-from = 10
-to = 20
-sum = 0
-
-#for文は配列の要素内でのループの数を示す
-for i in from..to
-  sum = sum + 1
-end
-
-puts sum
-
-
-items = {"鉛筆" => 100, "消しゴム" => 50, "ノート" => 200}
-items.each do |key, value|
- puts "#{key}は#{value}円です。"
-end
+# 到達できるマスの数を出力
+puts reachable.size
